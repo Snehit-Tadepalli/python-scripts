@@ -1,2 +1,1 @@
-import os
-print(type(os))
+print("Hello")
