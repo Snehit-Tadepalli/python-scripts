@@ -1,6 +1,6 @@
 services:
   vote:
-    image: 703172697697.dkr.ecr.us-east-1.amazonaws.com/vote-app:vote-v[BUILD_NUMBER]
+    image: vote-image-placeholder
     command: python app.py
     depends_on:
       redis:
@@ -14,7 +14,7 @@ services:
       - back-tier
 
   result:
-    build: 703172697697.dkr.ecr.us-east-1.amazonaws.com/vote-app:result-v[BUILD_NUMBER]
+    image: result-image-placeholder
     command: nodemon server.js
     depends_on:
       db:
@@ -29,7 +29,7 @@ services:
       - back-tier
 
   worker:
-    image: 703172697697.dkr.ecr.us-east-1.amazonaws.com/vote-app:worker-v[BUILD_NUMBER]
+    image: worker-image-placeholder
     depends_on:
       redis:
         condition: service_healthy 
